@@ -16,13 +16,17 @@ In order to run this container you'll need docker installed.
 
 You also need a working Kubernetes cluster or minikube
 
-
-
 ### Usage
 
-#### Hoe to test the image
+#### How to test the image
 
-List the different parameters available to your container
+
+First create a ServiceAccount with enough permission
+
+```shell
+kubectl apply -f spark.yaml -n default
+```
+Once you have a the serviceAccount setup now you need to create a test pod
 
 ```shell
 kubectl run spark-test-pod --generator=run-pod/v1 -it --rm=true \
